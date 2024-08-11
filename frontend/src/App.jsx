@@ -9,7 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute"
 // write logout function
 function Logout() {
   localStorage.clear()
-  return <Navigate to="/login" />
+  return <Navigate to="/" />
 }
 
 // write register and logout function
