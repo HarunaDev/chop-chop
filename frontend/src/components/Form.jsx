@@ -108,7 +108,7 @@ function Form({ route, method }) {
             </div>
           </form>
 
-          <AuthPrompt method='login' />
+          <AuthPrompt method={method} />
         </div>
       </div>
     )
