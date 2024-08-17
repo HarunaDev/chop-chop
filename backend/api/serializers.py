@@ -6,7 +6,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ["id", "username", "email", "password"]
-        extra_kwargs = {"passowrd": {"write_only": True}}
+        extra_kwargs = {"password": {"write_only": True}}
 
     
     # function to validate credentials and create new user

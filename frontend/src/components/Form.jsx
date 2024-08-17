@@ -11,12 +11,32 @@ function Form({ route, method }) {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
+    // call use navigate hook
     const navigate = useNavigate()
 
     const title = method === 'login' ? "Login" : "Sign Up"
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+
+        // try to send request then catch error if the request was successful or not
+        try {
+            // send request
+            const res = await api.post(route, { username, email, password })
+
+            // if method login & successful, we want to get the access & refresh token then store it then navigate to home or register is it was not successful
+            if (method === 'login'){
+                localStorage.setItem(ACCESS_TOKEN, res.data.access)
+                localStorage.setItem(REFRESH_TOKEN, res.data.refresh)
+                navigate("/")              
+            } else {
+                navigate("/login")
+            }
+
+        } catch (error) {
+            alert(error)
+        }
     }
 
     return (
