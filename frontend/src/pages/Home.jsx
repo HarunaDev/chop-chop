@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"
 import api from "../api"
 
 function Home() {
-    // eslint-disable-next-line no-unused-vars
     // state to hold user
     const [user, setUser] = useState("there")
 
