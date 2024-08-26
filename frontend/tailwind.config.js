@@ -9,7 +9,11 @@ module.exports = withMT({
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'xs': '500px', 
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),
