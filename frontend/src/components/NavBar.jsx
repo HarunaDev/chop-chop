@@ -9,7 +9,8 @@ import {
   IconButton,
 } from "@material-tailwind/react";
  
-export default function NavbarDefault() {
+// eslint-disable-next-line react/prop-types
+export default function NavbarDefault({user}) {
   const [openNav, setOpenNav] = React.useState(false);
  
   React.useEffect(() => {
@@ -20,11 +21,13 @@ export default function NavbarDefault() {
   }, []);
  
   const navList = (
-    <img
-  src={logo} // Replace with the actual path to your image
-  alt="Navigation"
-  className="w-16 h-auto object-contain" // w-48 corresponds to 192px (close to 200px)
-/>
+    <Link to="/">
+        <img
+            src={logo} // Replace with the actual path to your image
+            alt="Navigation"
+            className="w-16 h-auto object-contain" // w-48 corresponds to 192px (close to 200px)
+        />
+    </Link>
   );
  
   return (
@@ -35,7 +38,7 @@ export default function NavbarDefault() {
           href="#"
           className="mr-4 cursor-pointer py-1.5 font-bold"
         >
-          <Link to="/">
+          <Link to="/order">
           <Button
             //   variant="gradient"
               size="sm"
@@ -47,24 +50,41 @@ export default function NavbarDefault() {
         </Typography>
         <div className="hidden xs:block">{navList}</div>
         <div className="flex items-center gap-x-1">
-          <Link to="/contact">
-            <Button
-            //   variant="gradient"
-              size="sm"
-              className="bg-[#FFFFFF] hidden xs:inline-block text-gray-900 mx-2"
-            >
-              <span>Login</span>
-            </Button>
-          </Link>
-          <Link to="/contact">
-            <Button
-            //   variant="gradient"
-              size="sm"
-              className="bg-[#2CCA50] hidden xs:inline-block"
-            >
-              <span>Sign Up</span>
-            </Button>
-          </Link>
+          { user === null ? (
+            <>
+                <Link to="/login">
+                    <Button
+                    //   variant="gradient"
+                    size="sm"
+                    className="bg-[#FFFFFF] hidden xs:inline-block text-gray-900 mx-2"
+                    >
+                    <span>Login</span>
+                    </Button>
+                </Link>
+                <Link to="/register">
+                    <Button
+                    //   variant="gradient"
+                    size="sm"
+                    className="bg-[#2CCA50] hidden xs:inline-block"
+                    >
+                    <span>Sign Up</span>
+                    </Button>
+                </Link>
+            </>
+          ) : (
+            <>
+                <p className="text-gray-200 mx-4">Hello {user}</p>
+                <Link to="/logout">
+                    <Button
+                    //   variant="gradient"
+                    size="sm"
+                    className="bg-[#D42B31] hidden xs:inline-block"
+                    >
+                    <span>Logout</span>
+                    </Button>
+                </Link>
+            </>
+          )}
         </div>
         <IconButton
           variant="text"
