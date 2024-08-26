@@ -4,7 +4,7 @@ import NavbarDefault from "../components/NavBar"
 
 function Home() {
     // state to hold user
-    const [user, setUser] = useState("there")
+    const [user, setUser] = useState(null)
 
     useEffect(() => {
         getUser()
@@ -23,8 +23,8 @@ function Home() {
 
     return (
         <>
-        <NavbarDefault />
-        <h1>Hello {user}</h1>
+        <NavbarDefault user={user}/>
+        {/* <h1>Hello {user}</h1> */}
         </>
     )
 }
