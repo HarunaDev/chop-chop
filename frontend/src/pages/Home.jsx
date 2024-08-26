@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import api from "../api"
+import NavbarDefault from "../components/NavBar"
 
 function Home() {
     // state to hold user
@@ -22,6 +23,7 @@ function Home() {
 
     return (
         <>
+        <NavbarDefault />
         <h1>Hello {user}</h1>
         </>
     )
