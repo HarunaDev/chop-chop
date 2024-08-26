@@ -7,14 +7,14 @@ function AuthPrompt({ method }) {
       {method === 'login' ? (
         <p className="mt-10 text-center text-sm text-gray-500">
           Do not have an account?{' '}
-          <Link to="/register" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+          <Link to="/register" className="font-semibold leading-6 text-[#2CCA50] hover:text-[#5bce76]">
             Sign up
           </Link>
         </p>
       ) : (
         <p className="mt-10 text-center text-sm text-gray-500">
           Already have an account?{' '}
-          <Link to="/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+          <Link to="/login" className="font-semibold leading-6 text-[#2CCA50] hover:text-[#5bce76]">
             Login
           </Link>
         </p>
