@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import api from "../api"
 import NavbarDefault from "../components/NavBar"
 import Banner from "../components/Banner"
+import SpecialMenu from "../components/SpecialMenu"
 
 function Home() {
     // state to hold user
@@ -26,6 +27,7 @@ function Home() {
         <>
         <NavbarDefault user={user}/>
         <Banner />
+        <SpecialMenu />
         </>
     )
 }
