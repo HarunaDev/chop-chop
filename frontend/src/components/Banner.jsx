@@ -13,7 +13,7 @@ function Banner() {
                 <div className="flex flex-col justify-around h-full w-1/3">
                     <h2 className="text-3xl text-[#282828] font-bold">Mouthwatering gourmet creation, freshly prepared, bursting with flavor</h2>
                     <Link to="/order">
-                        <button className="bg-[#ECD313] text-white py-2 px-4 rounded-md w-40 h-16">Order Now</button>
+                        <button className="bg-[#D42B31] text-white py-2 px-4 rounded-md w-40 h-16">Order Now</button>
                     </Link>
                 </div>
 
