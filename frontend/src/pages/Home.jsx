@@ -3,6 +3,7 @@ import api from "../api"
 import NavbarDefault from "../components/NavBar"
 import Banner from "../components/Banner"
 import SpecialMenu from "../components/SpecialMenu"
+import Service from "../components/Service"
 
 function Home() {
     // state to hold user
@@ -25,9 +26,10 @@ function Home() {
 
     return (
         <>
-        <NavbarDefault user={user}/>
-        <Banner />
-        <SpecialMenu />
+            <NavbarDefault user={user}/>
+            <Banner />
+            <SpecialMenu />
+            <Service />
         </>
     )
 }
