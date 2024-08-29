@@ -4,6 +4,7 @@ import NavbarDefault from "../components/NavBar"
 import Banner from "../components/Banner"
 import SpecialMenu from "../components/SpecialMenu"
 import Service from "../components/Service"
+import Footer from "../components/Footer"
 
 function Home() {
     // state to hold user
@@ -30,6 +31,7 @@ function Home() {
             <Banner />
             <SpecialMenu />
             <Service />
+            <Footer />
         </>
     )
 }
