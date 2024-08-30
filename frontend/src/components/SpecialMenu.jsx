@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable no-undef */
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import MenuCard from "./MenuCard";
