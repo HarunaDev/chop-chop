@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import logo from '../assets/choji-logo.png'
+import { motion } from "framer-motion";
 import {
   Navbar,
   MobileNav,
@@ -10,7 +11,7 @@ import {
 } from "@material-tailwind/react";
  
 // eslint-disable-next-line react/prop-types
-export default function NavbarDefault({user}) {
+export default function NavbarDefault({user, url, text}) {
   const [openNav, setOpenNav] = React.useState(false);
  
   React.useEffect(() => {
@@ -31,7 +32,11 @@ export default function NavbarDefault({user}) {
   );
  
   return (
-    <div className="bg-[#EEEEEE]">
+    <motion.div 
+        initial={{ y:-250 }}
+        animate={{ y: 0 }}
+        transition={{ duration: .5 }}
+        className="bg-[#EEEEEE]">
         <Navbar className="mx-auto max-w-screen-xl px-4 py-2 xs:px-8 xs:py-4 bg-[#282828]">
             <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
                 <Typography
@@ -39,13 +44,13 @@ export default function NavbarDefault({user}) {
                 href="#"
                 className="mr-4 cursor-pointer py-1.5 font-bold"
                 >
-                <Link to="/order">
+                <Link to={url}>
                 <Button
                     //   variant="gradient"
                     size="sm"
                     className="bg-[#ECD313] hidden xs:inline-block"
                     >
-                    <span>Order</span>
+                    <span>{text}</span>
                     </Button>
                 </Link>
                 </Typography>
@@ -138,6 +143,6 @@ export default function NavbarDefault({user}) {
                 </div>
             </MobileNav>
         </Navbar>
-    </div>
+    </motion.div>
   );
 }

@@ -27,7 +27,7 @@ function Home() {
 
     return (
         <>
-            <NavbarDefault user={user}/>
+            <NavbarDefault user={user} url="/order" text="Order"/>
             <Banner />
             <SpecialMenu />
             <Service />
