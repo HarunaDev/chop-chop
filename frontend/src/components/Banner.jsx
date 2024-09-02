@@ -6,7 +6,7 @@ import Yoghurt from "../assets/yoghurt.png";
 import Food from "../assets/food.png";
 import { motion } from "framer-motion";
 
-function Banner() {
+function Banner(prop) {
     return (
         <>
             <section id="banner" className="flex justify-between items-center h-[600px] px-16 bg-[#EEEEEE]">
@@ -18,18 +18,18 @@ function Banner() {
                     transition={{ type: "spring", stiffness: 50 }}
                 >
                     <h2 className="text-3xl text-[#282828] font-bold">Mouthwatering gourmet creation, freshly prepared, bursting with flavor</h2>
-                    <Link to="/order">
+                    <Link to={prop.orderUrl}>
                         <motion.button 
                             className="bg-[#D42B31] text-white py-2 px-4 rounded-md w-40 h-16"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >
-                            Order Now
+                            {prop.orderText}
                         </motion.button>
                     </Link>
                 </motion.div>
 
-                {/* <!-- Center Image --> */}
+                {prop.banner ? prop.banner :
                 <motion.img  
                     className="center w-1/3 h-auto object-contain mx-auto mx-8"
                     src={BannerImg} 
@@ -37,7 +37,7 @@ function Banner() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 1 }}
-                />
+                />}
 
                 {/* <!-- Second Column --> */}
                 <motion.div 

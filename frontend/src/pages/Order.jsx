@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import api from "../api"
 // eslint-disable-next-line no-unused-vars
 import { Link } from 'react-router-dom'
+import Banner from "../components/Banner"
 
 function Order() {
     // state to hold user
@@ -26,6 +27,13 @@ function Order() {
     return (
         <>
             <NavBar user={user} url="/" text="Home" />
+            <Banner orderUrl="#Menu" orderText="Go to Menu" banner={
+                <div>
+                    <h1>Welcome to Choji chop shop</h1>
+                    <Link to="">
+                        <button>Create your order</button>
+                    </Link>
+                </div>} />
         </>
     )
 }
