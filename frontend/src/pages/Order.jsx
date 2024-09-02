@@ -1,7 +1,6 @@
 import NavBar from "../components/NavBar"
 import { useState, useEffect } from "react"
 import api from "../api"
-// eslint-disable-next-line no-unused-vars
 import { Link } from 'react-router-dom'
 import Banner from "../components/Banner"
 
