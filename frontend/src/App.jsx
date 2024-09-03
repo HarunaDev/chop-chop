@@ -21,23 +21,25 @@ function RegisterAndLogout(){
 function App() {
 
   return (
-    <BrowserRouter >
-    <Routes>
-      {/* wrap home in protected route so that only authorized users can access that page */}
-      <Route path="/" element={<Home />} />
+    <div className="bg-[#EEEEEE]">
+      <BrowserRouter >
+      <Routes>
+        {/* wrap home in protected route so that only authorized users can access that page */}
+        <Route path="/" element={<Home />} />
 
-      <Route path="/order" element={
-        <ProtectedRoute>
-          <Order />
-        </ProtectedRoute>
-      } />
+        <Route path="/order" element={
+          <ProtectedRoute>
+            <Order />
+          </ProtectedRoute>
+        } />
 
-      <Route path="/login" element={<Login />} />
-      <Route path="/logout" element={<Logout />} />
-      <Route path="/register" element={<RegisterAndLogout />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-    </BrowserRouter>
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/register" element={<RegisterAndLogout />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
 
