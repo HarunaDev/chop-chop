@@ -12,6 +12,14 @@ function Order() {
     const [user, setUser] = useState(null);
     const [showBase, setShowBase] = useState(false); // State to toggle between Banner and Base
 
+    // state to track user order
+    const [food, setFood] = useState({ base: "", sides: [], toppings: []})
+
+    // function to add base selcection
+    const addBase = (base) => {
+        setFood({ ...food, base})
+    }
+
     useEffect(() => {
         getUser();
     }, []);
@@ -49,7 +57,7 @@ function Order() {
                     }
                 />
             ) : (
-                <Base /> // Render Base component when showBase is true
+                <Base addBase={addBase} food={food} /> // Render Base component when showBase is true
             )}
             <Footer />
         </>
