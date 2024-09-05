@@ -8,7 +8,7 @@ function Base({ addBase, food, proceedToSides }) {
     const bases = ['Rice', 'Spaghetti', 'Beans'];
 
     return (
-        <section className="py-32 px-64 bg-gray-100 rounded-lg shadow-lg flex justify-between items-center">
+        <section className="py-32 px-64 bg-[#EEEEEE] rounded-lg shadow-lg flex justify-between items-center">
             <div className="w-1/2 flex flex-col justify-center items-start">
                 <h1 className="text-2xl font-bold mb-6">Select A Base for Your Order</h1>
 

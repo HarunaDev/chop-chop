@@ -22,7 +22,7 @@ function Home() {
         .then((data) => {
             setUser(data.username)
         })
-        .catch((err) => alert(err))
+        .catch((err) => console.log(err))
     }
 
     return (
