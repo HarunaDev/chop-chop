@@ -5,14 +5,15 @@ import api from "../api";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Base from "../components/Base";
-import Sides from "../components/Sides"; // Import the Sides component
-import "../styles/Base.css";
+import Sides from "../components/Sides";
+import Toppings from "../components/Toppings"; // Import the Toppings component
 
 function Order() {
     // State to hold user
     const [user, setUser] = useState(null);
     const [showBase, setShowBase] = useState(false); // State to toggle between Banner and Base
-    const [showSides, setShowSides] = useState(false); // State to toggle between Base and Sides
+    const [showSides, setShowSides] = useState(false); // State to toggle between Sides and Toppings
+    const [showToppings, setShowToppings] = useState(false); // State to toggle between Sides and Toppings
 
     // State to track user order
     const [food, setFood] = useState({ base: "", sides: [], toppings: [] });
@@ -22,9 +23,16 @@ function Order() {
         setFood({ ...food, base });
     };
 
-    // Function to proceed to Sides after selecting a base
+    // Function to proceed to Sides after Base is selected
     const proceedToSides = () => {
         setShowSides(true);
+        setShowBase(false); // Hide the Base view
+    };
+
+    // Function to proceed to Toppings after Sides are selected
+    const proceedToToppings = () => {
+        setShowToppings(true);
+        setShowSides(false); // Hide the Sides view
     };
 
     useEffect(() => {
@@ -45,7 +53,9 @@ function Order() {
     return (
         <>
             <NavBar user={user} url="/" text="Home" />
-            {!showBase ? (
+
+            {/* Step 1: Banner (First View) */}
+            {!showBase && !showSides && !showToppings && (
                 <Banner
                     orderUrl="#Menu"
                     orderText="Go to Menu"
@@ -57,17 +67,29 @@ function Order() {
                             transition={{ duration: 0.5 }}
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
-                            onClick={() => setShowBase(true)} // Update state on click
+                            onClick={() => setShowBase(true)} // Start order flow
                         >
                             Create your order
                         </motion.button>
                     }
                 />
-            ) : !showSides ? (
-                <Base addBase={addBase} food={food} proceedToSides={proceedToSides} /> // Pass proceedToSides to Base
-            ) : (
-                <Sides food={food} setFood={setFood} /> // Render Sides component when showSides is true
             )}
+
+            {/* Step 2: Base Selection */}
+            {showBase && !showSides && !showToppings && (
+                <Base addBase={addBase} food={food} proceedToSides={proceedToSides} />
+            )}
+
+            {/* Step 3: Sides Selection */}
+            {showSides && !showToppings && (
+                <Sides food={food} setFood={setFood} proceedToToppings={proceedToToppings} />
+            )}
+
+            {/* Step 4: Toppings Selection */}
+            {showToppings && (
+                <Toppings food={food} setFood={setFood} />
+            )}
+
             <Footer />
         </>
     );
