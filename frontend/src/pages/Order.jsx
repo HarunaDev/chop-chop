@@ -1,24 +1,31 @@
 import { useState, useEffect } from "react";
-// import { Link } from 'react-router-dom';
 import { motion } from "framer-motion";
 import NavBar from "../components/NavBar";
 import api from "../api";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
-import Base from "../components/Base"; // Import the Base component
+import Base from "../components/Base";
+import Sides from "../components/Sides"; // Import the Sides component
+import "../styles/Base.css";
 
 function Order() {
     // State to hold user
     const [user, setUser] = useState(null);
     const [showBase, setShowBase] = useState(false); // State to toggle between Banner and Base
+    const [showSides, setShowSides] = useState(false); // State to toggle between Base and Sides
 
-    // state to track user order
-    const [food, setFood] = useState({ base: "", sides: [], toppings: []})
+    // State to track user order
+    const [food, setFood] = useState({ base: "", sides: [], toppings: [] });
 
-    // function to add base selcection
+    // Function to add base selection
     const addBase = (base) => {
-        setFood({ ...food, base})
-    }
+        setFood({ ...food, base });
+    };
+
+    // Function to proceed to Sides after selecting a base
+    const proceedToSides = () => {
+        setShowSides(true);
+    };
 
     useEffect(() => {
         getUser();
@@ -56,8 +63,10 @@ function Order() {
                         </motion.button>
                     }
                 />
+            ) : !showSides ? (
+                <Base addBase={addBase} food={food} proceedToSides={proceedToSides} /> // Pass proceedToSides to Base
             ) : (
-                <Base addBase={addBase} food={food} /> // Render Base component when showBase is true
+                <Sides food={food} setFood={setFood} /> // Render Sides component when showSides is true
             )}
             <Footer />
         </>
