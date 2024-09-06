@@ -6,14 +6,16 @@ import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Base from "../components/Base";
 import Sides from "../components/Sides";
-import Toppings from "../components/Toppings"; // Import the Toppings component
+import Toppings from "../components/Toppings"; 
+import TakeOut from "../components/TakeOut"; 
 
 function Order() {
     // State to hold user
     const [user, setUser] = useState(null);
     const [showBase, setShowBase] = useState(false); // State to toggle between Banner and Base
     const [showSides, setShowSides] = useState(false); // State to toggle between Sides and Toppings
-    const [showToppings, setShowToppings] = useState(false); // State to toggle between Sides and Toppings
+    const [showToppings, setShowToppings] = useState(false); // State to toggle between Toppings and Order Summary
+    const [showOrderSummary, setShowOrderSummary] = useState(false); // State to toggle ShowOrder
 
     // State to track user order
     const [food, setFood] = useState({ base: "", sides: [], toppings: [] });
@@ -33,6 +35,12 @@ function Order() {
     const proceedToToppings = () => {
         setShowToppings(true);
         setShowSides(false); // Hide the Sides view
+    };
+
+    // Function to proceed to ShowOrder after Toppings are selected
+    const proceedToShowOrder = () => {
+        setShowOrderSummary(true);
+        setShowToppings(false); // Hide the Toppings view
     };
 
     useEffect(() => {
@@ -55,7 +63,7 @@ function Order() {
             <NavBar user={user} url="/" text="Home" />
 
             {/* Step 1: Banner (First View) */}
-            {!showBase && !showSides && !showToppings && (
+            {!showBase && !showSides && !showToppings && !showOrderSummary && (
                 <Banner
                     orderUrl="#Menu"
                     orderText="Go to Menu"
@@ -76,18 +84,23 @@ function Order() {
             )}
 
             {/* Step 2: Base Selection */}
-            {showBase && !showSides && !showToppings && (
+            {showBase && !showSides && !showToppings && !showOrderSummary && (
                 <Base addBase={addBase} food={food} proceedToSides={proceedToSides} />
             )}
 
             {/* Step 3: Sides Selection */}
-            {showSides && !showToppings && (
+            {showSides && !showToppings && !showOrderSummary && (
                 <Sides food={food} setFood={setFood} proceedToToppings={proceedToToppings} />
             )}
 
             {/* Step 4: Toppings Selection */}
-            {showToppings && (
-                <Toppings food={food} setFood={setFood} />
+            {showToppings && !showOrderSummary && (
+                <Toppings food={food} setFood={setFood} proceedToShowOrder={proceedToShowOrder} />
+            )}
+
+            {/* Final Step: Show Order Summary */}
+            {showOrderSummary && (
+                <TakeOut food={food} />
             )}
 
             <Footer />
