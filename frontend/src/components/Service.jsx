@@ -20,19 +20,19 @@ function Service() {
     return (
         <section
             ref={ref}
-            className="flex justify-between items-center bg-[#EEEEEE] px-32 py-16"
+            className="flex flex-col md:flex-row justify-between items-center bg-[#EEEEEE] px-8 md:px-32 py-16"
         >
             <motion.div
-                className="flex flex-col justify-between items-start"
+                className="flex flex-col justify-center items-center md:items-start mb-8 md:mb-0 text-center md:text-left"
                 initial={{ x: -100, opacity: 0 }}
                 animate={textControls}
             >
-                <h1 className="mb-16 text-3xl text-[#282828] font-bold">
-                    Order your favourite foods, <br /> locally prepared and delivered <br /> to your doorstep.
+                <h1 className="mb-8 md:mb-16 text-2xl md:text-3xl text-[#282828] font-bold">
+                    Order your favourite foods, <br className="hidden md:block"/> locally prepared and delivered <br className="hidden md:block"/> to your doorstep.
                 </h1>
 
                 <Link to="/order">
-                    <button className="rounded bg-[#2CCA50] px-6 py-4 text-[#FFFFFF] font-semibold">
+                    <button className="rounded bg-[#2CCA50] px-6 py-3 md:py-4 text-[#FFFFFF] font-semibold">
                         Order Now
                     </button>
                 </Link>
@@ -41,7 +41,7 @@ function Service() {
             <motion.img
                 src={ServiceImg}
                 alt="Service Delivery"
-                // className="w-1/3 h-auto object-contain"
+                className="w-2/3 md:w-1/3 h-auto object-contain"
                 initial={{ x: 100, opacity: 0 }}
                 animate={imageControls}
             />
