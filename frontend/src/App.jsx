@@ -21,7 +21,7 @@ function RegisterAndLogout(){
 function App() {
 
   return (
-    <div className="bg-[#EEEEEE]">
+    <div className="bg-[#EEEEEE] min-h-screen">
       <BrowserRouter >
       <Routes>
         {/* wrap home in protected route so that only authorized users can access that page */}
