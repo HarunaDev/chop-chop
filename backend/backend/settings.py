@@ -30,6 +30,15 @@ SECRET_KEY = 'django-insecure-++ad(fd8dl^3^y^sht_p9x8v527=q2qw9n14+o7$1!u$l*7^)j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'harunaalvin69@gmail.com'  # replace with your email
+EMAIL_HOST_PASSWORD = 'bxwg omcg qmud bjzm'  # replace with your email password
+
+
 ALLOWED_HOSTS = ["*"] #allow different hosts to host our application
 
 # Configurations to allow jw tokens to work properly

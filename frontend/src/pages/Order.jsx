@@ -58,6 +58,26 @@ function Order() {
             .catch((err) => alert(err));
     };
 
+    // Send order email after showing the order summary
+    useEffect(() => {
+        if (showOrderSummary) {
+            sendOrderEmail();
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [showOrderSummary]);
+
+    const sendOrderEmail = () => {
+        api.post("/api/send-order-email/", { order: food })
+            // eslint-disable-next-line no-unused-vars
+            .then((res) => {
+                alert("Order email sent successfully!");
+            })
+            // eslint-disable-next-line no-unused-vars
+            .catch((err) => {
+                alert("Failed to send order email.");
+            });
+    };
+
     return (
         <>
             <NavBar user={user} url="/" text="Home" />
