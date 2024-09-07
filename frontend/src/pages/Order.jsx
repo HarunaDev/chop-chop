@@ -69,16 +69,16 @@ function Order() {
                     orderText="Go to Menu"
                     banner={
                         <motion.button
-                            className="mx-auto border-4 border-[green] p-8 rounded text-4xl font-bold text-[green]"
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ duration: 0.5 }}
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            onClick={() => setShowBase(true)} // Start order flow
-                        >
-                            Create your order
-                        </motion.button>
+                        className="mx-auto my-16 md:mt-12 md:mb-12 border-4 border-[green] p-8 rounded text-xl md:text-4xl font-bold text-[green]"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.5 }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => setShowBase(true)} // Start order flow
+                    >
+                        Create your order
+                    </motion.button>
                     }
                 />
             )}
