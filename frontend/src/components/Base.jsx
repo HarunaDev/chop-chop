@@ -8,11 +8,14 @@ function Base({ addBase, food, proceedToSides }) {
     const bases = ['Rice', 'Spaghetti', 'Beans'];
 
     return (
-        <section className="py-32 px-64 bg-[#EEEEEE] rounded-lg shadow-lg flex justify-between items-center">
-            <div className="w-1/2 flex flex-col justify-center items-start">
-                <h1 className="text-2xl font-bold mb-6">Select A Base for Your Order</h1>
+        <section className="py-16 md:py-32 px-8 md:px-32 lg:px-64 bg-[#EEEEEE] rounded-lg shadow-lg flex flex-col lg:flex-row justify-between items-center">
+            {/* Left Section: Text and Buttons */}
+            <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start">
+                <h1 className="text-xl md:text-2xl font-bold mb-6 text-center lg:text-left">
+                    Select A Base for Your Order
+                </h1>
 
-                <ul className="space-y-4">
+                <ul className="space-y-4 text-center lg:text-left">
                     {bases.map(base => {
                         let spanClass = food.base === base 
                             ? 'active-item font-bold text-black' 
@@ -38,8 +41,9 @@ function Base({ addBase, food, proceedToSides }) {
                 )}
             </div>
 
-            <div className="w-1/2 flex justify-center">
-                <img className="w-[300px]" src={Img} alt="Base selection" />
+            {/* Right Section: Image */}
+            <div className="w-full lg:w-1/2 flex justify-center mt-8 lg:mt-0">
+                <img className="w-2/3 md:w-[300px] h-auto" src={Img} alt="Base selection" />
             </div>
         </section>
     );
