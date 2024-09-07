@@ -40,6 +40,7 @@ function SpecialMenu() {
                 variants={fadeInVariant}
                 initial="hidden"
                 animate={controls}
+                className="mb-12"
             >
                 <MenuCard detail={detail} img={img} {...props} />
             </motion.div>
@@ -47,29 +48,39 @@ function SpecialMenu() {
     };
 
     return (
-        <section id="special-section" className="h-auto py-20 px-16 bg-[#F8E44D]">
+        <section id="special-section" className="h-auto py-12 px-6 md:py-20 md:px-16 bg-[#F8E44D]">
             <motion.h1
                 ref={headingRef}
                 initial="hidden"
                 animate={headingControls}
                 variants={fadeInVariant}
-                className="text-center w-[400px] mx-auto text-4xl text-[#282828] font-bold mb-16"
+                className="text-center w-full md:w-[400px] mx-auto text-2xl md:text-4xl text-[#282828] font-bold mb-8 md:mb-16"
             >
                 Checkout our Special Combo Menu
             </motion.h1>
 
-            <AnimatedMenuCard detail="3pcs Chicken & Fries" img={FriesSpecial} roundedR="rounded-r" roundedL2="rounded-l" />
+            <AnimatedMenuCard 
+                detail="3pcs Chicken & Fries" 
+                img={FriesSpecial} 
+                roundedR="md:rounded-r" 
+                roundedL2="md:rounded-l" 
+            />
             <AnimatedMenuCard
                 detail="1pc Big Burger & Smoothie"
                 img={BurgerSmoothie}
-                style="flex-row-reverse"
-                margin="mr-auto"
-                text="text-end"
-                marginL="ml-auto"
-                roundedL="rounded-l"
-                roundedR2="rounded-r"
+                style="md:flex-row-reverse"
+                margin="md:mr-auto"
+                text="md:text-end"
+                marginL="md:ml-auto"
+                roundedL="md:rounded-l"
+                roundedR2="md:rounded-r"
             />
-            <AnimatedMenuCard detail="6pcs Chicken & Fries with Smoothie" img={FriesChickenSmoothie} roundedR="rounded-r" roundedL2="rounded-l" />
+            <AnimatedMenuCard 
+                detail="6pcs Chicken & Fries with Smoothie" 
+                img={FriesChickenSmoothie} 
+                roundedR="md:rounded-r" 
+                roundedL2="md:rounded-l" 
+            />
         </section>
     );
 }
