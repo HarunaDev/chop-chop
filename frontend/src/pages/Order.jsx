@@ -69,7 +69,7 @@ function Order() {
                     orderText="Go to Menu"
                     banner={
                         <motion.button
-                        className="mx-auto my-16 md:mt-12 md:mb-12 border-4 border-[green] p-8 rounded text-xl md:text-4xl font-bold text-[green]"
+                        className="mx-auto my-16 md:mt-12 md:mb-12 border-4 border-[green] p-4 rounded text-xl md:text-2xl font-bold text-[green]"
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{ duration: 0.5 }}
