@@ -36,7 +36,7 @@ cd backend
 
 ```bash
 python -m env venv
-source env/bin/activate  # On Windows: env\Scripts\activate
+source env/bin/activate  # On Windows: env/Scripts/activate
 ```
 
 #### Install Backend Requirements
