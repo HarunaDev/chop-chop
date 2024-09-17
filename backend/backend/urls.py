@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from api.views import CreateUserView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +27,5 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name="refresh"), #link token refresh view to path
     path('api-auth/', include("rest_framework.urls")), #link all rest frame work urls
     path('api/', include('api.urls')), #link any additional path not included in the urlpatterns list to the urls.py file in '/api'
+    path('', views.index, name='index')
 ]
