@@ -19,6 +19,8 @@ from django.urls import path, include
 from api.views import CreateUserView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from . import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,3 +31,5 @@ urlpatterns = [
     path('api/', include('api.urls')), #link any additional path not included in the urlpatterns list to the urls.py file in '/api'
     path('', views.index, name='index')
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
