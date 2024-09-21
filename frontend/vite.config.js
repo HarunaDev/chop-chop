@@ -7,6 +7,7 @@ export default defineConfig({
     exclude: ['env.mjs'],
   },
   define: {
+    // eslint-disable-next-line no-undef
     'process.env': process.env,
   },
   plugins: [react()],
