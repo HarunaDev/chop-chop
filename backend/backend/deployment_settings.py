@@ -29,7 +29,7 @@ MIDDLEWARE = [
 # ]
 
 STORAGES = {
-    "dfault": {
+    "default": {
         "BACKEND" : "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
