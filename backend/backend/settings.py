@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "your-default-secret-key")
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 # ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Configurations to allow JWT tokens to work properly
 REST_FRAMEWORK = {
@@ -97,10 +97,14 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 DATABASES = {
-    "default": dj_database_url.config(
-        default=os.getenv('DATABASE_URL', 'postgres://user:password@localhost:5432/dbname'),
-        conn_max_age=600
-    )
+    # "default": dj_database_url.config(
+    #     default=os.getenv('DATABASE_URL', 'postgres://user:password@localhost:5432/dbname'),
+    #     conn_max_age=600
+    # )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Password validation
@@ -150,7 +154,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWED_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React frontend URL
+    "http://127.0.0.1:3000",  # Localhost for testing
+    "https://your-production-domain.com",  # Your production domain
+]
 
 # Additional Security Settings (optional)
 SECURE_BROWSER_XSS_FILTER = True
