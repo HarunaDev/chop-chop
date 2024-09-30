@@ -15,7 +15,7 @@ function ProtectedRoute({children}) {
     // add use effect hook to call auth function
     useEffect(() => {
         auth().catch(() => setIsAuthorized(false)) // set authorization to false if any errors are caught
-    })
+    }, [])
 
     // refresh access token automatically
     const refreshToken = async () => {

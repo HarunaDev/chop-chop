@@ -11,8 +11,8 @@ function Footer() {
             <img className="mx-auto mt-8 md:mt-10 lg:mt-12 w-full md:w-[500px] lg:w-[600px] h-auto object-contain" src={FooterImg} alt="Footer" />
 
             <div className="flex flex-col md:flex-row justify-center md:justify-between items-center mt-12 md:mt-18">
-                <div className="flex items-center space-x-6">
-                    <img className="w-16 md:w-24 lg:w-32" src={FooterLogo} alt="Footer Logo" />
+                <div className="flex justify-between items-center space-x-6 mx-auto lg:w-11/12 w-full">
+                    <img className="w-12 md:w-20 lg:w-24" src={FooterLogo} alt="Footer Logo" />
                     <Link to="/order">
                         <button className="bg-[#D42B31] text-[#FFFFFF] text-sm md:text-lg px-4 py-2 md:px-6 md:py-3 rounded">
                             Order Now
